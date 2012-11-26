@@ -1,0 +1,105 @@
+\documentclass{llncs}
+\usepackage{url}
+\usepackage{hyperref}
+\usepackage{graphicx}
+\usepackage{amssymb}
+\usepackage{amsmath}
+%\usepackage{multirow}
+\usepackage{algorithmic}
+\usepackage{listings}
+\usepackage[utf8]{inputenc}
+\usepackage{color}
+\definecolor{gray97}{gray}{.97}
+\definecolor{gray75}{gray}{.75}
+\definecolor{gray45}{gray}{.45}
+\lstset{ frame=Ltb,
+     framerule=0pt,
+     aboveskip=0.5cm,
+     framextopmargin=3pt,
+     framexbottommargin=3pt,
+     framexleftmargin=0.4cm,
+     framesep=0pt,
+     rulesep=.4pt,
+     backgroundcolor=\color{gray97},
+     rulesepcolor=\color{black},
+     %
+     stringstyle=\ttfamily,
+     showstringspaces = false,
+     basicstyle=\scriptsize\ttfamily,
+     commentstyle=\color{gray45},
+     keywordstyle=\bfseries,
+     %
+     numbers=left,
+     numbersep=15pt,
+     numberstyle=\tiny,
+     numberfirstline = false,
+     breaklines=true,
+   }
+ 
+% minimizar fragmentado de listados
+\lstnewenvironment{listing}[1][]
+   {\lstset{#1}\pagebreak[0]}{\pagebreak[0]}
+ 
+\lstdefinestyle{consola}
+   {basicstyle=\scriptsize\bf\ttfamily,
+    backgroundcolor=\color{gray75},
+   }
+ 
+\lstdefinestyle{C}
+   {language=C,
+   }
+
+\begin{document}
+
+\title{An approach to the n-body problem solution using the particle-particle scenario in Multi and Many-cores}
+\author{Cristián D. Maureira}
+\institute{Center for Technological Innovation in High Performance Computing (CTI-HPC),\\ Universidad Técnica Federico Santa María\\ \email{cmaureir@hpc.cl}}
+\pagestyle{headings}  % switches on printing of running heads
+\maketitle
+
+\begin{abstract}
+In the present work, is described a parallel programming
+comparison, between Many and Multi core scenario,
+focused on the widely know \emph{n-body} problem.
+We present an state of art of the main approaches to
+the problem force calculation and finally
+we show the obtained results of the three different
+parallel programming approaches with the pros and cons
+of each implementation.
+\\
+\textbf{Key words:} Parallel Algorithms, OpenMP, Pthreads, CUDA, n-body
+\end{abstract}
+
+\section{Introduction}
+\label{introduction}
+\input{src/introduction}
+
+
+\section{N-body details}
+\label{nbody-details}
+\input{src/nbody-details}
+
+
+\section{Algorithm approach}
+\label{algorithm}
+\input{src/algorithm}
+
+
+\section{Experimental Results}
+\label{experimental}
+\input{src/experimental}
+
+\section{Conclusions and Future Work}
+\label{conclusions}
+\input{src/conclusions}
+
+\section*{Acknowledgements}
+
+This work and the associated research has been conducted with the support of the Center for Technological Innovation in High Performance Computing (CTI-HPC),
+of the Universidad Técnica Federico Santa María.
+Without their help, this work would have been impossible.
+
+\newpage
+\bibliographystyle{splncs03}
+\bibliography{nbody-paper}
+\end{document}
